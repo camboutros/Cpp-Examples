@@ -1,0 +1,18 @@
+./yshell build Apr 25 2016 17:47:47
+% prompt this is my prompt:
+
+New prompt is: thisismyprompt: 
+thisismyprompt: ls /
+
+
+/:
+	1	2   .
+	1	2   ..
+thisismyprompt: ls
+
+
+/:
+	1	2   .
+	1	2   ..
+thisismyprompt: exit 5
+yshell: exit(0)

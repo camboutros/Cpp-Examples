@@ -1,0 +1,25 @@
+define circle1 circle 50 100
+define square1 square 200 30 
+draw tomato1 circle1 0 2
+draw blue square1 3 4
+draw tomato1 circle1 0 2
+draw blue square1 3 4
+draw tomato1 circle1 600 150
+draw blue square1 100 100 
+draw tomato1 circle1 0 2
+draw blue square1 3 4
+draw tomato1 circle1 0 2
+draw blue square1 3 4
+draw tomato1 circle1 0 2
+draw blue square1 3 4
+draw tomato1 circle1 150 150
+draw blue square1 100 100
+draw tomato1 circle1 0 2
+draw blue square1 30 400
+define triangle1 triangle 400 200 234 234 23 234
+define equilateral1 equilateral 500 500
+define polgon1 polygon 50 500 560 70 25 50 
+draw magenta triangle1 123 2345
+draw green equilateral1 600 400
+draw purple polgon1 234 234
+

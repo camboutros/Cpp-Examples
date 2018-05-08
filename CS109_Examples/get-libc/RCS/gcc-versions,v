@@ -1,0 +1,63 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2015.08.11.23.54.06;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2015.08.11.23.52.00;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: gcc-versions,v 1.1 2015-08-11 16:52:00-07 - - $
+cmd() {
+   echo $*
+   echo --------------------------------
+   $* | sed 's/^/** /'
+   echo --------------------------------
+}
+echo $0:
+cmd g++ --version
+cmd ldd --version
+cmd /lib/libc.so.6
+cmd gdb --version
+cmd valgrind --version
+cmd ddd --version
+cmd bison --version
+cmd flex --version
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: libc-version,v 1.6 2015-08-11 16:48:10-07 - - $
+d6 1
+a6 1
+   $*
+d14 4
+a17 2
+valgrind --version
+ddd --version
+@

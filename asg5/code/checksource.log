@@ -1,0 +1,18 @@
+checksource: improper character \x09 = ^I (tab)
+   file "getenv.cpp.ps": 292 errors: lines 18, 21, 25, 31--31, 59, 82, 
+        90, 98, 109--109, 118--118, 153, 175--177, 185, 227, 240, 
+        252--252, 261, 287, 298--300, 315, 329--392, 425, 442, 504--505
+checksource: line length > 144 characters
+   file "HEADER.html": 1 errors: line 15
+   file "getenv.cpp.pdf": 5 errors: lines 185, 430--431, 434--435
+checksource: line length > 216 characters
+   file "getenv.cpp.pdf": 2 errors: lines 185, 435
+checksource: line length > 288 characters
+   file "getenv.cpp.pdf": 2 errors: lines 185, 435
+checksource: line length > 72 characters
+   file "HEADER.html": 2 errors: lines 15--16
+   file "getenv.cpp.pdf": 196 errors: lines 63, 81, 86, 88, 175, 185, 
+        191--301, 306, 313, 319--336, 341, 349, 355--398, 402, 415--419, 
+        428--431, 434--435, 477
+   file "getenv.cpp.ps": 4 errors: lines 98, 134, 540, 645
+checksource: TOTAL COMPLAINTS: 504

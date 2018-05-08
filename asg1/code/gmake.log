@@ -1,0 +1,32 @@
+g++ -std=gnu++14 -g -O0 -Wall -Wextra -c ubigint.cpp
+ubigint.cpp: In member function ‘ubigint ubigint::operator*(const ubigint&) const’:
+ubigint.cpp:215:4: error: ‘ubig_value_t’ was not declared in this scope
+    ubig_value_t product;
+    ^
+ubigint.cpp:217:16: error: expected unqualified-id before ‘=’ token
+    for (size_t = 0; i < expected_size; place++){
+                ^
+ubigint.cpp:217:16: error: expected ‘;’ before ‘=’ token
+ubigint.cpp:217:16: error: expected primary-expression before ‘=’ token
+ubigint.cpp:217:21: error: ‘i’ was not declared in this scope
+    for (size_t = 0; i < expected_size; place++){
+                     ^
+ubigint.cpp:217:38: error: expected ‘)’ before ‘;’ token
+    for (size_t = 0; i < expected_size; place++){
+                                      ^
+ubigint.cpp:217:40: error: ‘place’ was not declared in this scope
+    for (size_t = 0; i < expected_size; place++){
+                                        ^
+ubigint.cpp:229:14: error: ‘product’ was not declared in this scope
+      temp = (product.ubig_value.at(m+n)+((*i-'0')*(*j-'0'))+carry);
+              ^
+ubigint.cpp:236:3: error: ‘product’ was not declared in this scope
+   product.ubig_value.at(m+n) = (carry);
+   ^
+ubigint.cpp:239:9: error: ‘product’ was not declared in this scope
+  return product; // test
+         ^
+ubigint.cpp:240:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+gmake: *** [ubigint.o] Error 1

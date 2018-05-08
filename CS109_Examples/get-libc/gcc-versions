@@ -1,0 +1,17 @@
+#!/bin/sh
+# $Id: gcc-versions,v 1.2 2015-08-11 16:54:06-07 - - $
+cmd() {
+   echo $*
+   echo --------------------------------
+   $* | sed 's/^/** /'
+   echo --------------------------------
+}
+echo $0:
+cmd g++ --version
+cmd ldd --version
+cmd /lib/libc.so.6
+cmd gdb --version
+cmd valgrind --version
+cmd ddd --version
+cmd bison --version
+cmd flex --version

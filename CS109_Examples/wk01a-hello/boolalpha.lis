@@ -1,0 +1,15 @@
+::::::::::::::::::::::::::::::::
+boolalpha.cpp.log
+::::::::::::::::::::::::::::::::
+     1	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting boolalpha.cpp
+     2	boolalpha.cpp:
+     3	     $Id: boolalpha.cpp,v 1.4 2014-03-27 19:03:31-07 - - $
+     4	g++ -g -O0 -Wall -Wextra -rdynamic -std=gnu++14 boolalpha.cpp
+     5		-o boolalpha -lglut -lGLU -lGL -lX11 -lrt -lm
+     6	rm -f boolalpha.o
+     7	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished boolalpha.cpp
+::::::::::::::::::::::::::::::::
+boolalpha.out
+::::::::::::::::::::::::::::::::
+     1	true = 1, false = 0
+     2	true = true, false = false

@@ -1,0 +1,38 @@
+
+-: 1: key=value
+
+-: 2: second=third
+
+-: 3: foo=bar
+
+-: 4: f1=51
+
+-: 5: f2=52
+
+-: 6: foobar=baz
+
+-: 7: baz=quux
+
+-: 8: this=is=a=test
+
+-: 9: =
+baz = quux
+f1 = 51
+foo = bar
+f2 = 52
+key = value
+foobar = baz
+second = third
+this = is=a=test
+
+-: 10: a=value
+
+-: 11: b=value
+
+-: 12: =value
+a = value
+
+-: 13: # $Id: test2.in,v 1.1 2010-02-09 20:31:28-08 - - $
+
+-: 14: 
+EXIT_SUCCESS

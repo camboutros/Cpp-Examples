@@ -1,0 +1,5 @@
+Filename: /no/such
+File failure
+Filename: no//file/either
+File failure
+EXIT_SUCCESS

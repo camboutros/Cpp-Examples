@@ -1,0 +1,12 @@
+checksource: improper character \x09 = ^I (tab)
+   file "README": 17 errors: lines 11--27
+   file "bigint_tests.cpp": 1 errors: line 12
+   file "ubigint_tests.cpp": 1 errors: line 11
+checksource: line length > 144 characters
+   file "Makefile": 1 errors: line 54
+checksource: line length > 72 characters
+   file "Makefile": 1 errors: line 54
+   file "bigint_tests.cpp": 1 errors: line 41
+   file "ubigint.cpp": 1 errors: line 216
+   file "ubigint_tests.cpp": 1 errors: line 37
+checksource: TOTAL COMPLAINTS: 24

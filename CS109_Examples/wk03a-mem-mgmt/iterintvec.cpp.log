@@ -1,0 +1,7 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting iterintvec.cpp
+iterintvec.cpp:
+     $Id: iterintvec.cpp,v 1.41 2016-04-14 16:09:31-07 - - $
+g++ -g -O0 -Wall -Wextra -rdynamic -std=gnu++14 iterintvec.cpp
+	-o iterintvec -lglut -lGLU -lGL -lX11 -lrt -lm
+rm -f iterintvec.o
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished iterintvec.cpp

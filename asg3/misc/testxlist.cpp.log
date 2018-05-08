@@ -1,0 +1,7 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting testxlist.cpp
+testxlist.cpp:
+     $Id: testxlist.cpp,v 1.1 2016-01-28 15:32:51-08 - - $
+g++ -g -O0 -Wall -Wextra -rdynamic -std=gnu++14 testxlist.cpp
+	-o testxlist -lglut -lGLU -lGL -lX11 -lrt -lm
+rm -f testxlist.o
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished testxlist.cpp

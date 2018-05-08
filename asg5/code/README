@@ -1,0 +1,28 @@
+
+//////////////////////////////////////////////////
+// Name: Camellia Boutros                       //
+// CruzID: cboutros                             //
+// Class: CMPS109                               //
+// Title: Asg 5 Client and Server               //
+// Date: 5/31/2016                              //
+//////////////////////////////////////////////////
+
+SOURCES:
+        Makefile
+        Makefile.dep
+        cix.cpp
+        cixd.cpp
+        logstream.h
+        protocol.h
+        protocol.cpp
+        sockets.h
+        sockets.cpp
+Issues: 
+        Having problems figuring out how to export port variables/getting cixd and cix to interact correctly
+
+Citations:
+   Using some example code from Programming:
+   Principles and Practice using C++ by Bjarne Stroustrup
+   to help solve a few cstring conversion errors 
+   
+   Used stack overflow to help figure out environment variables and related code     

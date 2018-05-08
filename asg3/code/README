@@ -1,0 +1,24 @@
+/////////////////////////////////////
+// Name: Camellia Boutros          //
+// CruzID: cboutros                //
+// Class: CMPS 109                 //
+// Title: asg3                     //
+// Date: 4/29/2016                 //
+/////////////////////////////////////
+
+Sources: 
+     
+   main.cpp
+   listmap.h
+   listmap.tcc
+   trace.h
+   trace.cpp
+   util.h
+   util.tcc
+   util.cpp
+   xless.h
+   xpair.h
+   Makefile
+   Makefile.dep
+   README
+

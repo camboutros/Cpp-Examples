@@ -1,0 +1,75 @@
+<HEAD>
+<STYLE>
+p { max-width: 45em; }
+</STYLE>
+</HEAD>
+<BODY>
+<TT>$Id: README.html,v 1.12 2016-01-20 16:21:33-08 - - $</TT>
+<P>
+This is a non-credit lab, in preparation for an upcoming project
+which will involve using OpenGL, which is a graphics toolkit.&nbsp;
+There is nothing to submit or grade.&nbsp;
+<P>
+<H1>X11</H1>
+<P>
+In order to run an X11 application on the server and have
+it display on your own local workstation, you will need to
+install an X11 client.&nbsp;
+<P>
+<A HREF=
+http://its.ucsc.edu/unix-timeshare/tutorials/setting-up-x2go.html>
+http://its.ucsc.edu/unix-timeshare/tutorials/setting-up-x2go.html</A>
+<BR>
+describes one such method of doing this.&nbsp;
+<P>
+Linux:&nbsp;
+You don't need this, because Linux has X11 installed.&nbsp;
+<P>
+OSX:&nbsp;
+You could use x2go, or download Apple's X11 utility.&nbsp;
+<P>
+Windoze:&nbsp;
+X2go, xming, something?
+<P>
+How do you know you have X11 installed?
+<BR><TT>ssh -X </TT><I>username</I><TT>@unix.ucsc.edu</TT>
+<P>
+Once you have logged in type any X11 command, such as
+<BR><TT>xclock &</TT>
+<P>
+Note the <TT>&</TT> at the end of the line.&nbsp;
+<P>
+<H1>OpenGL</H1>
+<P>
+<A HREF=https://www.opengl.org/wiki/Getting_Started>
+https://www.opengl.org/wiki/Getting_Started</A>
+<P>
+OpenGL will be net-intensive, especially if you have a slow
+internet connection.&nbsp;
+So you may want to download OpenGL onto your own computer.&nbsp;
+<P>
+Testing OpenGL on the server.&nbsp;
+Copy these files into your own directory and type:&nbsp;
+<BR><TT>make test</TT>
+<P>
+The Hello World window should open up if you X11 client
+is working correctly.&nbsp;
+<P>
+Copy these file to your own computer and type:&nbsp;
+<BR><TT>make test</TT>
+<P>
+If you have OpenGL correctly installed, the Hello window
+will open.&nbsp;
+<P>
+Note:&nbsp;
+You are not expected to understand anything in
+<TT>hello-gl.cpp</TT>
+at this time,
+just that it somehow makes use of the OpenGL libraries.
+<H1>John's version</H1>
+<TT><A HREF=../../TA/lab4-x11-opengl-modified/>
+http:../../TA/lab4-x11-opengl-modified/
+<BR>
+/afs/cats.ucsc.edu/courses/cmps109-wm/TA/lab4-x11-opengl-modified/
+</TT></A>
+</BODY>

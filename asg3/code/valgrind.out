@@ -1,0 +1,100 @@
+==15880== Memcheck, a memory error detector
+==15880== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==15880== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==15880== Command: keyvalue test1.in test2.in test3.in
+==15880== 
+Filename: test1.in
+
+test1.in: 1: a=b
+
+test1.in: 2: key=value
+
+test1.in: 3: this=is a test
+
+test1.in: 4: this
+this = is a test
+
+test1.in: 5: key
+key = value
+
+test1.in: 6: a
+a = b
+
+test1.in: 7: # $Id: test1.in,v 1.1 2010-02-09 20:31:28-08 - - $
+
+test1.in: 8: 
+Filename: test2.in
+
+test2.in: 9: key=value
+
+test2.in: 10: second=third
+
+test2.in: 11: foo=bar
+
+test2.in: 12: f1=51
+
+test2.in: 13: f2=52
+
+test2.in: 14: foobar=baz
+
+test2.in: 15: baz=quux
+
+test2.in: 16: this=is=a=test
+
+test2.in: 17: =
+a = b
+key = value
+baz = quux
+foobar = baz
+f2 = 52
+f1 = 51
+foo = bar
+this = is=a=test
+second = third
+
+test2.in: 18: a=value
+
+test2.in: 19: b=value
+
+test2.in: 20: =value
+a = value
+
+test2.in: 21: # $Id: test2.in,v 1.1 2010-02-09 20:31:28-08 - - $
+
+test2.in: 22: 
+Filename: test3.in
+
+test3.in: 23: # Comments should be ignored
+
+test3.in: 24: 
+
+test3.in: 25: 
+
+test3.in: 26: also ignore blank lines
+also ignore blank lines: key not found
+
+test3.in: 27: this file contains nonexistent keys
+this file contains nonexistent keys: key not found
+
+test3.in: 28: all output should be error messages
+all output should be error messages: key not found
+
+test3.in: 29: # $Id: test3.in,v 1.1 2010-02-09 20:31:28-08 - - $
+
+test3.in: 30: 
+EXIT_SUCCESS
+==15880== 
+==15880== HEAP SUMMARY:
+==15880==     in use at exit: 894 bytes in 30 blocks
+==15880==   total heap usage: 126 allocs, 96 frees, 30,833 bytes allocated
+==15880== 
+==15880== LEAK SUMMARY:
+==15880==    definitely lost: 32 bytes in 1 blocks
+==15880==    indirectly lost: 862 bytes in 29 blocks
+==15880==      possibly lost: 0 bytes in 0 blocks
+==15880==    still reachable: 0 bytes in 0 blocks
+==15880==         suppressed: 0 bytes in 0 blocks
+==15880== Rerun with --leak-check=full to see details of leaked memory
+==15880== 
+==15880== For counts of detected and suppressed errors, rerun with: -v
+==15880== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 1 from 1)

@@ -1,0 +1,7 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting sizeof.cpp
+sizeof.cpp:
+     $Id: sizeof.cpp,v 1.21 2016-03-24 17:33:56-07 - - $
+g++ -g -O0 -Wall -Wextra -rdynamic -std=gnu++14 sizeof.cpp
+	-o sizeof -lglut -lGLU -lGL -lX11 -lrt -lm
+rm -f sizeof.o
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished sizeof.cpp

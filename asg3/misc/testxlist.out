@@ -1,0 +1,35 @@
+--------------------------------------------------
+sizeof (xlist) = 16
+sizeof (int) = 4
+After decl:
+0x7ffe4d72d5d0->{next=0x7ffe4d72d5d0, prev=0x7ffe4d72d5d0}
+After push_back:
+0x7ffe4d72d5d0->{next=0x14d00c0, prev=0x14d0120}
+0x14d00c0->{next=0x14d00e0, prev=0x7ffe4d72d5d0, item=3}
+0x14d00e0->{next=0x14d0100, prev=0x14d00c0, item=4}
+0x14d0100->{next=0x14d0120, prev=0x14d00e0, item=5}
+0x14d0120->{next=0x7ffe4d72d5d0, prev=0x14d0100, item=6}
+6
+5
+At end of test_int:
+0x7ffe4d72d5d0->{next=0x14d00c0, prev=0x14d00e0}
+0x14d00c0->{next=0x14d00e0, prev=0x7ffe4d72d5d0, item=3}
+0x14d00e0->{next=0x7ffe4d72d5d0, prev=0x14d00c0, item=4}
+--------------------------------------------------
+sizeof (xlist) = 16
+sizeof (string) = 8
+After decl:
+0x7ffe4d72d5a0->{next=0x7ffe4d72d5a0, prev=0x7ffe4d72d5a0}
+After push_back:
+0x7ffe4d72d5a0->{next=0x14d00c0, prev=0x14d0120}
+0x14d00c0->{next=0x14d00e0, prev=0x7ffe4d72d5a0, item=Hello}
+0x14d00e0->{next=0x14d0100, prev=0x14d00c0, item=World}
+0x14d0100->{next=0x14d0120, prev=0x14d00e0, item=foo}
+0x14d0120->{next=0x7ffe4d72d5a0, prev=0x14d0100, item=bar}
+bar
+foo
+At end of test_string:
+0x7ffe4d72d5a0->{next=0x14d00c0, prev=0x14d00e0}
+0x14d00c0->{next=0x14d00e0, prev=0x7ffe4d72d5a0, item=Hello}
+0x14d00e0->{next=0x7ffe4d72d5a0, prev=0x14d00c0, item=World}
+--------------------------------------------------

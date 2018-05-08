@@ -1,0 +1,7 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting linknode.cpp
+linknode.cpp:
+     $Id: linknode.cpp,v 1.7 2016-04-19 19:26:30-07 - - $
+g++ -g -O0 -Wall -Wextra -rdynamic -std=gnu++14 linknode.cpp
+	-o linknode -lglut -lGLU -lGL -lX11 -lrt -lm
+rm -f linknode.o
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished linknode.cpp

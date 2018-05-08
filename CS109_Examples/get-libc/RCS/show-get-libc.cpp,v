@@ -1,0 +1,33 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.1
+date	2015.08.11.23.52.00;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: get-libc.cpp,v 1.1 2015-08-11 16:38:37-07 - - $
+
+#include <iostream>
+using namespace std;
+
+#include <gnu/libc-version.h>
+
+int main() {
+   cout << "libc_version = " << gnu_get_libc_version() << endl;
+}
+@

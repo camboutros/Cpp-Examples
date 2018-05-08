@@ -1,0 +1,7 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting inheritance2.cpp
+inheritance2.cpp:
+     $Id: inheritance2.cpp,v 1.10 2015-05-14 17:45:38-07 - - $
+g++ -g -O0 -Wall -Wextra -rdynamic -std=gnu++11 inheritance2.cpp
+	-o inheritance2 -lglut -lGLU -lGL -lX11 -lrt -lm
+rm -f inheritance2.o
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished inheritance2.cpp

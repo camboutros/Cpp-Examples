@@ -1,0 +1,7 @@
+Ask TA: 
+
+-How to get const_reverse_iterator, etc. working 
+-Look at DEBUGF error (first error if you try to make program)
+-multiplication algorithm dumps core
+-printable value adds ascii characters... ?
+

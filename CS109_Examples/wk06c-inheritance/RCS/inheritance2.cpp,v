@@ -1,0 +1,445 @@
+head	1.10;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.10
+date	2015.05.15.00.45.38;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2015.05.15.00.40.26;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2015.05.15.00.38.10;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2015.05.15.00.37.42;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2015.05.15.00.32.23;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2015.05.15.00.28.28;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2015.05.15.00.26.47;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2015.05.15.00.21.44;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2015.05.15.00.20.52;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2015.05.15.00.19.12;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.10
+log
+@-
+@
+text
+@// $Id: inheritance2.cpp,v 1.9 2015-05-14 17:40:26-07 - - $
+
+//
+// Example using objects, with a base object and two derived objects.
+// Similar to inheritance2, but uses gcc demangler.
+//
+
+#include <iostream>
+#include <memory>
+#include <typeinfo>
+#include <vector>
+using namespace std;
+
+#define LOG cout << __func__ << "[" << __LINE__ << "]: "
+
+#include <cxxabi.h>
+template <typename type>
+string demangle_typeid (const type& object) {
+   const char* name = typeid(object).name();
+   int status = 0;
+   using deleter = void (*) (void*);
+   unique_ptr<char,deleter> result {
+      abi::__cxa_demangle (name, nullptr, nullptr, &status),
+      std::free,
+   };
+   return status == 0 ? result.get() : name;
+}
+
+
+/////////////////////////////////////////////////////////////////
+// class object
+/////////////////////////////////////////////////////////////////
+
+class object {
+   private:
+      object (const object&) = delete;
+      object& operator= (const object&) = delete;
+      object (object&&) = delete;
+      object& operator= (object&&) = delete;
+      static unsigned next_id;;
+   protected:
+      const unsigned id;
+      object(); // abstract class, so only derived can used ctor.
+   public:
+      virtual ~object(); // must be virtual
+      virtual void print (ostream&) const;
+};
+
+ostream& operator<< (ostream& out, const object& obj) {
+   obj.print (out);
+   return out;
+}
+
+unsigned object::next_id = 0;
+
+object::object(): id(++next_id) {
+   LOG << "Create: " << *this << endl;
+}
+
+object::~object() {
+   LOG << "Delete: " << *this << endl;
+}
+
+void object::print (ostream& out) const {
+   out << "[" << static_cast<const void *const> (this) << "->"
+       << demangle_typeid(*this) << "] id=" << id << ": ";
+}
+
+
+/////////////////////////////////////////////////////////////////
+// class square 
+/////////////////////////////////////////////////////////////////
+
+class square: public object {
+   private:
+      size_t width;
+   public:
+      square (size_t width = 0);
+      virtual ~square();
+      virtual void print (ostream&) const;
+};
+
+square::square (size_t width): width(width) {
+   LOG << "Create: " << *this << endl;
+}
+
+square::~square() {
+   LOG << "Delete: " << *this << endl;
+}
+
+void square::print (ostream& out) const {
+   this->object::print (out);
+   out << "square: width=" << width;
+}
+
+/////////////////////////////////////////////////////////////////
+// class circle 
+/////////////////////////////////////////////////////////////////
+
+class circle: public object {
+   private:
+      size_t diameter;
+   public:
+      circle (size_t diameter = 0);
+      virtual ~circle();
+      virtual void print (ostream&) const;
+};
+
+circle::circle (size_t diameter): diameter(diameter) {
+   LOG << "Create: " << *this << endl;
+}
+
+circle::~circle() {
+   LOG << "Delete: " << *this << endl;
+}
+
+void circle::print (ostream& out) const {
+   this->object::print (out);
+   out << "circle: " << "diameter=" << diameter;
+}
+
+
+
+/////////////////////////////////////////////////////////////////
+// main
+/////////////////////////////////////////////////////////////////
+
+int main() {
+   LOG << "sizeof (object) = " << sizeof (object) << endl;
+   LOG << "sizeof (square) = " << sizeof (square) << endl;
+   LOG << "sizeof (circle) = " << sizeof (circle) << endl;
+
+   vector<shared_ptr<object>> vec;
+   // ERROR: v.push_back (new object());
+   // ERROR: object o;
+   vec.push_back (shared_ptr<object> (new circle (  )));
+   vec.push_back (shared_ptr<object> (new circle (10)));
+   vec.push_back (shared_ptr<object> (new square (  )));
+   vec.push_back (shared_ptr<object> (new square ( 5)));
+   vec.push_back (shared_ptr<object> (new square ( 8)));
+   cout << endl;
+
+   for (const auto& ptr: vec) {
+      LOG << "Object: " << *ptr << endl;
+   }
+   cout << endl;
+
+   LOG << "return 0" << endl;
+   return 0;
+}
+
+/*
+//TEST// valgrind --leak-check=full --show-reachable=yes \
+//TEST//       inheritance2 >inheritance2.out 2>&1
+//TEST// mkpspdf inheritance2.ps inheritance2.cpp* inheritance2.out*
+*/
+
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance2.cpp,v 1.8 2015-05-14 17:38:10-07 - - $
+d21 2
+a22 2
+   using voidfn = void (*) (void*);
+   unique_ptr<char,voidfn> result {
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance2.cpp,v 1.7 2015-05-14 17:37:42-07 - - $
+d136 1
+a136 1
+   vec.push_back (shared_ptr<object> (new circle ()));
+d138 3
+a140 3
+   vec.push_back (shared_ptr<object> (new square()));
+   vec.push_back (shared_ptr<object> (new square (5)));
+   vec.push_back (shared_ptr<object> (new square (8)));
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance2.cpp,v 1.6 2015-05-14 17:32:23-07 - - $
+d14 2
+a28 2
+#define LOG cout << __func__ << "[" << __LINE__ << "]: "
+
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance2.cpp,v 1.5 2015-05-14 17:28:28-07 - - $
+d27 2
+d57 1
+a57 1
+   cout << "Create: " << __func__ << " " << *this << endl;
+d61 1
+a61 1
+   cout << "Delete: " << __func__ << " " << *this << endl;
+d84 1
+a84 1
+   cout << "Create: " << __func__ << " " << *this << endl;
+d88 1
+a88 1
+   cout << "Delete: " << __func__ << " " << *this << endl;
+d110 1
+a110 1
+   cout << "Create: " << __func__ << " " << *this << endl;
+d114 1
+a114 1
+   cout << "Delete: " << __func__ << " " << *this << endl;
+d129 3
+a131 3
+   cout << "sizeof (object) = " << sizeof (object) << endl;
+   cout << "sizeof (square) = " << sizeof (square) << endl;
+   cout << "sizeof (circle) = " << sizeof (circle) << endl;
+d144 1
+a144 1
+      cout << "Object: " << __func__ << " " << *ptr << endl;
+d148 1
+a148 1
+   cout << "return 0" << endl;
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance2.cpp,v 1.4 2015-05-14 17:26:47-07 - - $
+d69 1
+a69 1
+// class rectangle 
+d72 1
+a72 1
+class rectangle: public object {
+a74 1
+      size_t height;
+d76 2
+a77 2
+      rectangle (size_t width = 0, size_t height = 0);
+      virtual ~rectangle();
+d81 1
+a81 2
+rectangle::rectangle (size_t width, size_t height):
+            width(width), height(height) {
+d85 1
+a85 1
+rectangle::~rectangle() {
+d89 1
+a89 1
+void rectangle::print (ostream& out) const {
+d91 1
+a91 1
+   out << "rectangle: width=" << width << ", height=" << height;
+d128 1
+a128 1
+   cout << "sizeof (rectangle) = " << sizeof (rectangle) << endl;
+d136 3
+a138 3
+   vec.push_back (shared_ptr<object> (new rectangle()));
+   vec.push_back (shared_ptr<object> (new rectangle (5)));
+   vec.push_back (shared_ptr<object> (new rectangle (8)));
+d153 1
+a153 1
+//TEST// mkpspdf -c inheritance2.ps inheritance2.cpp* inheritance2.out*
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance2.cpp,v 1.3 2015-05-14 17:21:44-07 - - $
+d155 1
+a155 1
+//TEST// mkpspdf inheritance2.ps inheritance2.cpp* inheritance2.out*
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance22.cpp,v 1.2 2015-05-14 17:20:52-07 - - $
+d27 1
+d36 2
+d55 1
+a55 1
+   cout << "Create: " << *this << endl;
+d59 1
+a59 1
+   cout << "Delete: " << *this << endl;
+d84 1
+a84 1
+   cout << "Create: " << *this << endl;
+d88 1
+a88 1
+   cout << "Delete: " << *this << endl;
+d110 1
+a110 1
+   cout << "Create: " << *this << endl;
+d114 1
+a114 1
+   cout << "Delete: " << *this << endl;
+d144 1
+a144 1
+      cout << "Object: " << *ptr << endl;
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance2.cpp,v 1.1 2015-05-14 17:19:12-07 - - $
+d5 1
+a5 1
+// Similar to inheritance, but uses gcc demangler.
+d151 2
+a152 2
+//TEST//       inheritance >inheritance.out 2>&1
+//TEST// mkpspdf inheritance.ps inheritance.cpp* inheritance.out*
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance.cpp,v 1.29 2015-02-10 17:43:42-08 - - $
+d16 1
+a16 1
+string demangle (const type& object) {
+d61 1
+a61 1
+       << typeid(*this).name() << "] id=" << id << ": ";
+@

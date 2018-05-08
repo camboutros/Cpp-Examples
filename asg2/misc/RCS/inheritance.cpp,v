@@ -1,0 +1,483 @@
+head	1.18;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.18
+date	2016.04.09.02.45.19;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2016.04.09.02.44.10;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2016.04.09.02.34.55;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2016.04.09.02.34.23;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2016.04.09.02.34.05;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2016.04.09.02.33.48;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2016.04.09.02.33.21;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2016.04.09.02.31.36;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2016.04.09.02.31.06;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2016.04.09.02.30.38;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2016.04.09.02.28.10;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2016.04.09.02.27.29;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2016.04.09.02.24.16;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2016.04.09.02.23.01;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2016.04.09.02.22.04;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2016.04.09.02.14.21;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2016.04.09.02.11.13;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2016.04.09.02.10.44;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.18
+log
+@-
+@
+text
+@// $Id: inheritance.cpp,v 1.16 2016-04-08 19:34:55-07 - - $
+
+// Simple example using inheritance.
+
+#include <cmath>
+#include <iostream>
+#include <memory>
+#include <sstream>
+#include <vector>
+using namespace std;
+
+class shape {
+   private:
+      static size_t next_id;
+      size_t id {++next_id};
+   public:
+      virtual double area() const = 0;
+      virtual double circum() const = 0;
+      virtual ostream& show (ostream&) const;
+      friend ostream& operator<< (ostream&, const shape&);
+};
+
+size_t shape::next_id {0};
+
+ostream& shape::show (ostream& out) const {
+   return out << "shape(" << id << ")";
+}
+
+ostream& operator<< (ostream& out, const shape& sh) {
+   return sh.show (out);
+}
+
+class nothing: public shape {
+      virtual double area() const override { return 0; }
+      virtual double circum() const override { return 0; }
+};
+
+class circle: public shape {
+   private:
+      double radius {};
+   public:
+      circle (double r = 0): radius(r) {}
+      virtual double area() const override {
+         return M_PI * pow (radius, 2);
+      }
+      virtual double circum() const override {
+         return 2 * M_PI * radius;
+      }
+      virtual ostream& show (ostream&) const override;
+};
+
+ostream& circle::show (ostream& out) const {
+   return shape::show (out) << ": circle radius " << radius;
+}
+
+class square: public shape {
+   private:
+      double side {};
+   public:
+      square (double s): side(s) {}
+      virtual double area() const override { return pow (side, 2); }
+      virtual double circum() const override { return 4 * side; }
+      virtual ostream& show (ostream&) const override;
+};
+
+
+ostream& square::show (ostream& out) const {
+   return shape::show (out) << ": square side " << side;
+}
+
+using shape_ptr = shared_ptr<shape>;
+int main (int argc, char** argv) {
+   vector<string> args (&argv[1], &argv[argc]);
+   vector<shape_ptr> vsp;
+   for (const auto& arg: args) {
+      istringstream argstream (arg);
+      char type {}; double num {};
+      argstream >> type >> num;
+      shape_ptr obj = nullptr;
+      switch (arg[0]) {
+         case 'c': obj = make_shared<circle> (num); break;
+         case 's': obj = make_shared<square> (num); break;
+         default:  obj = make_shared<nothing>(); break;
+      }
+      vsp.push_back (obj);
+   }
+   for (const auto& item: vsp) {
+      cout << *item << ", area " << item->area() << ", circum "
+           << item->circum() << endl;
+   }
+   return 0;
+}
+
+//TEST// inheritance c c10 s s15
+@
+
+
+1.17
+log
+@-
+@
+text
+@d53 1
+a53 2
+   shape::show (out);
+   return out << ": circle radius " << radius;
+d88 1
+a88 1
+      cout << item << ", area " << item->area() << ", circum "
+@
+
+
+1.16
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance.cpp,v 1.15 2016-04-08 19:34:23-07 - - $
+d53 2
+a54 1
+   return shape::show (out) << ": circle radius " << radius;
+@
+
+
+1.15
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance.cpp,v 1.14 2016-04-08 19:34:05-07 - - $
+d76 1
+a76 1
+      istringstream argstream = arg;
+@
+
+
+1.14
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance.cpp,v 1.13 2016-04-08 19:33:48-07 - - $
+d8 1
+@
+
+
+1.13
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance.cpp,v 1.12 2016-04-08 19:33:21-07 - - $
+d88 1
+a88 1
+           << item->circum << endl;
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance.cpp,v 1.11 2016-04-08 19:31:36-07 - - $
+d87 1
+a87 1
+      cout << item->id << ", area " << item->area() << ", circum "
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance.cpp,v 1.10 2016-04-08 19:31:06-07 - - $
+d67 1
+a67 1
+   return shape::show (out) << ": square edge " << radius;
+@
+
+
+1.10
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance.cpp,v 1.9 2016-04-08 19:30:38-07 - - $
+d66 1
+a66 1
+ostream& circle::show (ostream& out) const {
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance.cpp,v 1.8 2016-04-08 19:28:10-07 - - $
+d35 1
+a35 1
+}
+d42 6
+a47 2
+      virtual double area() const override { return M_PI * pow (radius, 2); }
+      virtual double circum() const override { return 2 * M_PI * radius; }
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance.cpp,v 1.7 2016-04-08 19:27:29-07 - - $
+d24 1
+a24 1
+ostream& shape::show (ostream& out) {
+d32 5
+d42 2
+a43 2
+      double area() const override { return M_PI * pow (radius, 2); }
+      double circum() const override { return 2 * M_PI * radius; }
+d47 1
+a47 1
+ostream& circle::show (ostream& out) {
+d56 2
+a57 2
+      double area() const override { return pow (side, 2); }
+      double circum() const override { return 4 * side; }
+d62 1
+a62 1
+ostream& circle::show (ostream& out) {
+d78 1
+a78 1
+         default:  cout << type << ": bad shape" << endl;
+d80 1
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance.cpp,v 1.6 2016-04-08 19:24:16-07 - - $
+d18 1
+a18 1
+      virtual ostream& show (ostream&);
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance.cpp,v 1.4 2016-04-08 19:22:04-07 - - $
+d22 1
+a22 1
+shape::next_id {0};
+d39 1
+a39 1
+      virtual ostream& show (ostream& out) const override;
+d53 1
+a53 1
+      virtual ostream& show (ostream& out) const override;
+@
+
+
+1.5
+log
+@-
+@
+text
+@d22 1
+a22 1
+static shape::next_id {0};
+d25 1
+a25 1
+   out << "shape(" << id << ")";
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance.cpp,v 1.3 2016-04-08 19:14:21-07 - - $
+a10 4
+ostream& operator<< (ostream& out, const shape& sh) {
+   return sh.show (out);
+}
+
+a11 1
+   friend ostream& operator<< (ostream&, const shape&);
+d19 1
+d26 4
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance.cpp,v 1.2 2016-04-08 19:11:13-07 - - $
+d63 12
+a74 5
+   vector<shape_ptr> vsp {
+      make_shared<circle> (),
+      make_shared<circle> (10),
+      make_shared<square> (),
+      make_shared<square> (15),
+d83 1
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance.cpp,v 1.1 2016-04-08 19:10:44-07 - - $
+d7 1
+d64 4
+a67 4
+      circle (),
+      circle (10),
+      square (),
+      square (15),
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d51 1
+a51 1
+      double circum() const override { return 4 * edge; }
+@

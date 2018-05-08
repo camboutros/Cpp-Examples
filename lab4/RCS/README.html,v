@@ -1,0 +1,348 @@
+head	1.12;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.12
+date	2016.01.21.00.21.33;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2016.01.21.00.21.08;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2016.01.21.00.20.32;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2016.01.21.00.19.46;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2016.01.20.22.15.09;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2016.01.20.22.01.27;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2016.01.20.02.09.41;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2016.01.20.02.09.01;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2016.01.20.02.08.19;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2016.01.20.02.04.06;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2016.01.20.02.03.39;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2016.01.20.02.03.15;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.12
+log
+@-
+@
+text
+@<HEAD>
+<STYLE>
+p { max-width: 45em; }
+</STYLE>
+</HEAD>
+<BODY>
+<TT>$Id: README.html,v 1.11 2016-01-20 16:21:08-08 - - $</TT>
+<P>
+This is a non-credit lab, in preparation for an upcoming project
+which will involve using OpenGL, which is a graphics toolkit.&nbsp;
+There is nothing to submit or grade.&nbsp;
+<P>
+<H1>X11</H1>
+<P>
+In order to run an X11 application on the server and have
+it display on your own local workstation, you will need to
+install an X11 client.&nbsp;
+<P>
+<A HREF=
+http://its.ucsc.edu/unix-timeshare/tutorials/setting-up-x2go.html>
+http://its.ucsc.edu/unix-timeshare/tutorials/setting-up-x2go.html</A>
+<BR>
+describes one such method of doing this.&nbsp;
+<P>
+Linux:&nbsp;
+You don't need this, because Linux has X11 installed.&nbsp;
+<P>
+OSX:&nbsp;
+You could use x2go, or download Apple's X11 utility.&nbsp;
+<P>
+Windoze:&nbsp;
+X2go, xming, something?
+<P>
+How do you know you have X11 installed?
+<BR><TT>ssh -X </TT><I>username</I><TT>@@unix.ucsc.edu</TT>
+<P>
+Once you have logged in type any X11 command, such as
+<BR><TT>xclock &</TT>
+<P>
+Note the <TT>&</TT> at the end of the line.&nbsp;
+<P>
+<H1>OpenGL</H1>
+<P>
+<A HREF=https://www.opengl.org/wiki/Getting_Started>
+https://www.opengl.org/wiki/Getting_Started</A>
+<P>
+OpenGL will be net-intensive, especially if you have a slow
+internet connection.&nbsp;
+So you may want to download OpenGL onto your own computer.&nbsp;
+<P>
+Testing OpenGL on the server.&nbsp;
+Copy these files into your own directory and type:&nbsp;
+<BR><TT>make test</TT>
+<P>
+The Hello World window should open up if you X11 client
+is working correctly.&nbsp;
+<P>
+Copy these file to your own computer and type:&nbsp;
+<BR><TT>make test</TT>
+<P>
+If you have OpenGL correctly installed, the Hello window
+will open.&nbsp;
+<P>
+Note:&nbsp;
+You are not expected to understand anything in
+<TT>hello-gl.cpp</TT>
+at this time,
+just that it somehow makes use of the OpenGL libraries.
+<H1>John's version</H1>
+<TT><A HREF=../../TA/lab4-x11-opengl-modified/>
+http:../../TA/lab4-x11-opengl-modified/
+<BR>
+/afs/cats.ucsc.edu/courses/cmps109-wm/TA/lab4-x11-opengl-modified/
+</TT></A>
+</BODY>
+@
+
+
+1.11
+log
+@-
+@
+text
+@d7 1
+a7 1
+<TT>$Id: README.html,v 1.10 2016-01-20 16:20:32-08 - - $</TT>
+d71 1
+a71 1
+../../TA/lab4-x11-opengl-modified/
+@
+
+
+1.10
+log
+@-
+@
+text
+@d7 1
+a7 1
+<TT>$Id: README.html,v 1.9 2016-01-20 16:19:46-08 - - $</TT>
+d70 5
+a74 5
+<A HREF=../../TA/lab4-x11-opengl-modified/>
+../../TA/lab4-x11-opengl-modified/</A>
+<BR><TT>
+afs/cats.ucsc.edu/courses/cmps109-wm/TA/lab4-x11-opengl-modified/
+</TT>
+@
+
+
+1.9
+log
+@-
+@
+text
+@d7 1
+a7 1
+<TT>$Id: README.html,v 1.8 2016-01-20 14:15:09-08 - - $</TT>
+d71 3
+a73 2
+../../TA/lab4-x11-opengl-modified/></A>
+<TT>/afs/cats.ucsc.edu/courses/cmps109-wm/TA/lab4-x11-opengl-modified/
+@
+
+
+1.8
+log
+@-
+@
+text
+@d7 1
+a7 1
+<TT><B>$Id: README.html,v 1.7 2016-01-20 14:01:27-08 - - $</B></TT>
+d35 1
+a35 1
+<BR><TT><B>ssh -X </B></TT><I>username</I><TT><B>@@unix.ucsc.edu</B></TT>
+d38 1
+a38 1
+<BR><TT><B>xclock &</B></TT>
+d40 1
+a40 1
+Note the <TT><B>&</B></TT> at the end of the line.&nbsp;
+d53 1
+a53 1
+<BR><TT><B>make test</B></TT>
+d59 1
+a59 1
+<BR><TT><B>make test</B></TT>
+d66 1
+a66 1
+<TT><B>hello-gl.cpp</B></TT>
+d69 5
+@
+
+
+1.7
+log
+@-
+@
+text
+@d7 1
+a7 1
+<TT>$Id: README.html,v 1.6 2016-01-19 18:09:41-08 - - $</TT>
+d35 1
+a35 2
+<P>
+<BR><TT>ssh -X </TT><I>username</I><TT>@@unix.ucsc.edu</TT>
+d38 1
+a38 1
+<BR><TT>xclock &</TT>
+d40 1
+a40 1
+Note the & at the end of the line.&nbsp;
+d53 1
+a53 1
+<BR><TT>make test</TT>
+d59 1
+a59 1
+<BR><TT>make test</TT>
+d64 1
+a64 1
+Note:\&nbsp;
+d66 1
+a66 1
+<TT>hello-gl.cpp</TT>
+@
+
+
+1.6
+log
+@-
+@
+text
+@d7 1
+a7 1
+<TT>$Id: README.html,v 1.5 2016-01-19 18:09:01-08 - - $</TT>
+d64 6
+@
+
+
+1.5
+log
+@-
+@
+text
+@d7 1
+a7 1
+<TT>$Id: README.html,v 1.4 2016-01-19 18:08:19-08 - - $</TT>
+d36 1
+a36 1
+<BR><TT>ssh -X <I>username</I>@@unix.ucsc.edu</TT>
+@
+
+
+1.4
+log
+@-
+@
+text
+@d7 1
+a7 1
+<TT>$Id: README.html,v 1.3 2016-01-19 18:04:06-08 - - $</TT>
+d36 1
+a36 1
+ssh -X username@@unix.ucsc.edu
+@
+
+
+1.3
+log
+@-
+@
+text
+@d7 1
+a7 1
+<TT>$Id: README.html,v 1.2 2016-01-19 18:03:39-08 - - $</TT>
+a38 1
+<P>
+a52 1
+<P>
+d54 1
+a54 1
+make test
+d63 1
+a63 1
+will open
+@
+
+
+1.2
+log
+@-
+@
+text
+@d7 1
+a7 1
+<TT>$Id: README.html,v 1.1 2016-01-19 18:03:15-08 - - $</TT>
+d11 1
+@
+
+
+1.1
+log
+@-
+@
+text
+@d7 1
+a64 2
+<P>
+$Id: README,v 1.1 2016-01-19 17:51:47-08 - - $
+@

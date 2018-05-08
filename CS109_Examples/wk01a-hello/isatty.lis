@@ -1,0 +1,19 @@
+::::::::::::::::::::::::::::::::
+isatty.cpp.log
+::::::::::::::::::::::::::::::::
+     1	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting isatty.cpp
+     2	isatty.cpp:
+     3	     $Id: isatty.cpp,v 1.15 2016-03-24 17:33:56-07 - - $
+     4	g++ -g -O0 -Wall -Wextra -rdynamic -std=gnu++14 isatty.cpp
+     5		-o isatty -lglut -lGLU -lGL -lX11 -lrt -lm
+     6	rm -f isatty.o
+     7	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished isatty.cpp
+::::::::::::::::::::::::::::::::
+isatty.out
+::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::
+isatty.err
+::::::::::::::::::::::::::::::::
+     1	isatty: cin: fd 0: Inappropriate ioctl for device
+     2	isatty: cout: fd 1: Invalid argument
+     3	isatty: cerr: fd 2: Invalid argument

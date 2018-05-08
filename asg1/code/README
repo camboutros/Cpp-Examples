@@ -1,0 +1,27 @@
+/////////////////////////////////////
+// Name: Camellia Boutros          //
+// CruzID: cboutros                //
+// Class: CMPS 109                 //
+// Title: asg1                     //
+// Date: 4/4/2016                  //
+/////////////////////////////////////
+
+Source files:
+
+	main.cpp
+	bigint.h
+	ubigint.h
+	bigint.cpp
+	ubigint.cpp
+	libfns.h
+	libfns.cpp
+	relops.h
+	scanner.h
+	scanner.cpp
+	iterstack.h
+	general.h
+	gerneal.cpp
+	debug.h
+	Makefile
+	README
+	
